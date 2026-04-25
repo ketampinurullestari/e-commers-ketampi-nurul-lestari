@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aurora Hijab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f7f7f7;
+      color: #f3b6eb;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVBAR */
+    header {
+      background: #a5e6d1;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #2c3e50;
+    }
+
+    .logo-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f1a2d9, #efe9ec);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav li {
+      cursor: pointer;
+      font-size: 0.95rem;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    nav li:hover {
+      background: #f1f1f1;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      max-width: 1100px;
+      margin: 20px auto;
+      background: #a5e6d1;
+      border-radius: 12px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .hero-text h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .hero-text p {
+      margin-bottom: 20px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .hero-text button {
+      background: #e67e22;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .hero-text button:hover {
+      background: #faaccb;
+      transform: translateY(-1px);
+    }
+
+    .hero-image {
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fcebd8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-height: 260px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* SECTION TITLE */
+    .section-title {
+      max-width: 1100px;
+      margin: 30px auto 10px;
+      padding: 0 10px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #faaccb;
+    }
+
+    /* PRODUK GRID */
+    .produk-grid {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 0 10px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 12px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .card-title {
+      font-weight: bold;
+      font-size: 1rem;
+      color: #faaccb;
+    }
+
+    .card-price {
+      color: #bcd7f5;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    .card button {
+      margin-top: auto;
+      background: #faaccb;
+      color: #fff;
+      border: none;
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .card button:hover {
+      background: #faaccb;
+      transform: translateY(-1px);
+    }
+
+    /* KATEGORI SECTION */
+    .kategori-list {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      padding: 0 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .kategori-pill {
+      padding: 8px 14px;
+      border-radius: 20px;
+      background: #6c4069;
+      border: 1px solid #eee;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+    }
+
+    .kategori-pill:hover,
+    .kategori-pill.active {
+      background: #f8d7f6;
+      color: #fff;
+      border-color: #c994de;
+    }
+
+    /* KERANJANG SIDEBAR */
+    .cart-toggle {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #f8d7f6;
+      color: #fff;
+      border-radius: 50%;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 200;
+      font-size: 1.2rem;
+    }
+
+    .cart-toggle span {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: #e4b3ed;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+    }
+
+    .cart-panel {
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 320px;
+      max-width: 80%;
+      height: 100vh;
+      background: #ffffff;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.15);
+      transform: translateX(100%);
+      transition: transform 0.25s ease-out;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-panel.open {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .cart-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      border-bottom: 1px dashed #eee;
+      padding-bottom: 6px;
+    }
+
+    .cart-item span {
+      font-size: 0.85rem;
+    }
+
+    .cart-footer {
+      border-top: 1px solid #eee;
+      padding: 10px 14px 14px;
+      font-size: 0.9rem;
+    }
+
+    .cart-footer button {
+      width: 100%;
+      margin-top: 8px;
+      background: #b850ae;
+      color: #fff;
+      border: none;
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .cart-footer button:hover {
+      background: #b77ad3;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #e79cf3;
+      color: #ecf0f1;
+      padding: 20px 10px;
+      margin-top: 40px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner h4 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin-right: 10px;
+      color: #efb6f648;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAVBAR -->
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <div class="logo-circle">HJ</div>
+        <span>Aurora Hijab</span>
+      </div>
+      <nav>
+        <ul>
+          <li onclick="scrollToSection('home')">Home</li>
+          <li onclick="scrollToSection('Hijab Colection')">Produk 2</li>
+          <li onclick="scrollToSection('kategori')">Kategori</li>
+          <li onclick="toggleCart()">Keranjang</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main id="home">
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Selamat Datang di Aurora Hijab</h1>
+        <p>
+          Temukan koleksi hijab kekinian, nyaman dipakai, dan cocok untuk berbagai aktivitas harian.
+          Belanja mudah, kualitas tinggi hanya di Aurora Hijab.
+        </p>
+        <button onclick="scrollToSection('produk')">Belanja Sekarang</button>
+      </div>
+      <div class="hero-image">
+        <!-- Ganti src dengan gambar hijab milikmu jika ada -->
+        <img src="LOGO AURORA.png" />
+      </div>
+    </section>
+
+    <!-- SECTION PRODUK (UTAMA) -->
+    <h2 class="section-title" id="produk">Produk Terbaru</h2>
+    <section class="produk-grid" id="produk-list">
+      <!-- Produk akan di-generate via JavaScript -->
+    </section>
+
+    <!-- SECTION PRODUK 2 (BISA DIISI PRODUK LAIN / SAMA) -->
+    <h2 class="section-title" id="produk2">Produk 2</h2>
+    <section class="produk-grid" id="produk-list-2">
+      <!-- Produk lain (atau sama) -->
+    </section>
+
+    <!-- SECTION KATEGORI -->
+    <h2 class="section-title" id="kategori">Kategori Hijab</h2>
+    <section class="kategori-list" id="kategori-list">
+      <!-- Kategori akan di-generate via JavaScript -->
+    </section>
+  </main>
+
+  <!-- TOMBOL KERANJANG MENGAMBANG -->
+  <div class="cart-toggle" onclick="toggleCart()">
+    🛒
+    <span id="cart-count">0</span>
+  </div>
+
+  <!-- PANEL KERANJANG -->
+  <aside class="cart-panel" id="cart-panel">
+    <div class="cart-header">
+      <span>Keranjang Belanja</span>
+      <button onclick="toggleCart()" style="border:none;background:none;font-size:1.1rem;cursor:pointer;">✕</button>
+    </div>
+    <div class="cart-body" id="cart-items">
+      Keranjang masih kosong.
+    </div>
+    <div class="cart-footer">
+      <div>Total: <strong id="cart-total">Rp0</strong></div>
+      <button onclick="checkout()">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h4>Kontak</h4>
+        <p>Email: nurullestly@gmail.com</p>
+        <p>WhatsApp: 0898-7020-983</p>
+      </div>
+      <div>
+        <h4>Sosial Media</h4>
+        <div class="social-links">
+          <a href="https://www.instagram.com/nurllst_?igsh=MTA0dXVoaGhoZXk3MQ==" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@yeahhjsn?_r=1&_t=ZS-95pk4SmgowH" target="_blank">TikTok</a>
+        </div>
+      </div>
+      <div>
+        <h4>&copy; <span id="year"></span> Aurora Hijab</h4>
+        <p>Semua hak cipta dilindungi.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // DATA PRODUK SEDERHANA
+    const products = [
+      {
+        id: 1,
+        name: "Hijab Segi empat jadul",
+        price: 20000,
+        category: "Segi empat",
+        image: "paris jadul warna.jpeg"},
+      {
+        id: 2,
+        name: "Hijab Pashmina Viscosse",
+        price: 55000,
+        category: "Pahsmina",
+        image: "viscosee 1.webp"
+      },
+      {
+        id: 3,
+        name: "Hijab Instan Sporty",
+        price: 20000,
+        category: "Instan",
+        image: "hijab sport.webp"
+      },
+      {
+        id: 4,
+        name: "Hijab Pashmina kaos",
+        price: 40000,
+        category: "kaos",
+        image: "kaos pashmina.webp"
+      }
+    ];
+
+    const categories = ["Semua", "Pashmina", "Segi Empat", "Instan", "Kaos"];
+
+    let cart = [];
+
+    // FORMAT RUPIAH
+    function formatRupiah(num) {
+      return "Rp" + num.toLocaleString("id-ID");
+    }
+
+    // RENDER PRODUK
+    function renderProducts(targetId, filterCategory = "Semua") {
+      const container = document.getElementById(targetId);
+      container.innerHTML = "";
+
+      const filtered = filterCategory === "Semua"
+        ? products
+        : products.filter(p => p.category === filterCategory);
+
+      filtered.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <img src="${p.image}" alt="${p.name}">
+          <div class="card-body">
+            <div class="card-title">${p.name}</div>
+            <div class="card-price">${formatRupiah(p.price)}</div>
+            <button onclick="addToCart(${p.id})">Tambah ke Keranjang</button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = "<p>Tidak ada produk untuk kategori ini.</p>";
+      }
+    }
+
+    // RENDER KATEGORI
+    function renderCategories() {
+      const container = document.getElementById("kategori-list");
+      container.innerHTML = "";
+      categories.forEach(cat => {
+        const pill = document.createElement("div");
+        pill.className = "kategori-pill" + (cat === "Semua" ? " active" : "");
+        pill.textContent = cat;
+        pill.onclick = () => {
+          document
+            .querySelectorAll(".kategori-pill")
+            .forEach(el => el.classList.remove("active"));
+          pill.classList.add("active");
+          renderProducts("produk-list", cat);
+          renderProducts("produk-list-2", cat);
+        };
+        container.appendChild(pill);
+      });
+    }
+
+    // KERANJANG
+    function addToCart(id) {
+      const product = products.find(p => p.id === id);
+      if (!product) return;
+
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...product, qty: 1 });
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const cartItems = document.getElementById("cart-items");
+      const cartTotal = document.getElementById("cart-total");
+      const cartCount = document.getElementById("cart-count");
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = "Keranjang masih kosong.";
+        cartTotal.textContent = "Rp0";
+        cartCount.textContent = "0";
+        return;
+      }
+
+      cartItems.innerHTML = "";
+      let total = 0;
+      let count = 0;
+
+      cart.forEach(item => {
+        total += item.price * item.qty;
+        count += item.qty;
+
+        const row = document.createElement("div");
+        row.className = "cart-item";
+        row.innerHTML = `
+          <span>${item.name} (x${item.qty})</span>
+          <span>${formatRupiah(item.price * item.qty)}</span>
+        `;
+        cartItems.appendChild(row);
+      });
+
+      cartTotal.textContent = formatRupiah(total);
+      cartCount.textContent = count.toString();
+    }
+
+    function toggleCart() {
+      const panel = document.getElementById("cart-panel");
+      panel.classList.toggle("open");
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("Keranjang masih kosong.");
+        return;
+      }
+      alert("Terima kasih! Pesananmu sedang diproses (simulasi).");
+      cart = [];
+      updateCartUI();
+      toggleCart();
+    }
+
+    // SCROLL KE SECTION
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      window.scrollTo({
+        top: el.offsetTop - 70,
+        behavior: "smooth"
+      });
+    }
+
+    // INIT
+    document.getElementById("year").textContent = new Date().getFullYear();
+    renderProducts("produk-list");
+    renderProducts("produk-list-2");
+    renderCategories();
+  </script>
+</body>
+</html>
