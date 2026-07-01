@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aurora Hijab</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+<img src="logo 1.jpeg">
+
+<h2>Aurora Hijab</h2>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li><a href="#home">Beranda</a></li>
+
+<li><a href="#produk">Produk</a></li>
+
+<li><a href="#kategori">Kategori</a></li>
+
+<li><a href="#kontak">Kontak</a></li>
+
+</ul>
+
+</nav>
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Cari produk...">
+
+<button onclick="searchProduct()">
+
+<i class="fa fa-search"></i>
+
+</button>
+
+</div>
+
+<div class="cart-icon" onclick="toggleCart()">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+<span id="cart-count">0</span>
+
+</div>
+
+</header>
+
+<section class="hero" id="home">
+
+<div class="hero-left">
+
+<h1>
+
+Selamat Datang di Aurora Hijab Premium
+
+</h1>
+
+<p>
+
+Terima kasih telah mengunjungi website kami.
+
+Aurora Hijab hadir untuk memberikan berbagai pilihan hijab yang stylish,
+
+berkualitas,
+
+dan mengikuti tren terkini dengan harga yang terjangkau.
+
+</p>
+
+<button onclick="scrollProduk()">
+
+Belanja Sekarang
+
+</button>
+
+</div>
+
+<div class="hero-right">
+
+<img
+id="slider"
+src="assets/hero.jpg">
+
+</div>
+
+</section>
+
+<section class="kategori" id="kategori">
+
+<h2>
+
+Kategori Produk
+
+</h2>
+
+<div class="kategori-list">
+
+<button>Pashmina Viscose Premium</button>
+
+<button>Pashmina Viscose Basic</button>
+
+<button>Pashmina Ceruty</button>
+
+</div>
+
+</section>
+
+<section class="produk" id="produk">
+
+<h2>
+
+Katalog Produk
+
+</h2>
+
+<div class="produk-grid">
+
+<div class="card">
+
+<img src="vc.premium.jpeg">
+
+<h3>Pashmina Viscose Premium</h3>
+
+<p>
+
+Rp85.000
+
+</p>
+
+<select>
+
+<option>Brownie</option>
+
+<option>Mahogani</option>
+
+<option>Mauve</option>
+
+<option>Frapuccino</option>
+
+</select>
+
+<button onclick="addCart('Pashmina Viscose Premium',85000)">
+
+Tambah Keranjang
+
+</button>
+
+</div>
+
+<div class="card">
+
+<img src="vc.basic.jpeg">
+
+<h3>Pashmina Viscose Basic</h3>
+
+<p>
+
+Rp60.000
+
+</p>
+
+<select>
+
+<option>Brownie</option>
+
+<option>Mahogani</option>
+
+<option>Mauve</option>
+
+<option>Frapuccino</option>
+
+</select>
+
+<button onclick="addCart('Pashmina Viscose Basic',60000)">
+
+Tambah Keranjang
+
+</button>
+
+</div>
+
+<div class="card">
+
+<img src="p.ceru.jpeg">
+
+<h3>Pashmina Ceruty</h3>
+
+<p>
+
+Rp50.000
+
+</p>
+
+<select>
+
+<option>Brownie</option>
+
+<option>Cream</option>
+
+<option>Mauve</option>
+
+<option>Frapuccino</option>
+
+</select>
+
+<button onclick="addCart('Pashmina Ceruty',50000)">
+
+Tambah Keranjang
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="cart-panel" id="cartPanel">
+
+<div class="cart-header">
+
+<h2>
+
+Keranjang
+
+</h2>
+
+<button onclick="toggleCart()">
+
+✖
+
+</button>
+
+</div>
+
+<div id="cartItems">
+
+Keranjang kosong.
+
+</div>
+
+<h3>
+
+Total :
+
+<span id="total">
+
+Rp0
+
+</span>
+
+</h3>
+
+<button class="checkout-btn">
+
+Checkout
+
+</button>
+
+</div>
+
+<footer id="kontak">
+
+<h2>
+
+Hubungi Kami
+
+</h2>
+
+<p>
+
+📱
+
+<a href="https://wa.me/628987020983">
+
+08987020983
+
+</a>
+
+</p>
+
+<p>
+
+📷
+
+<a href="https://instagram.com/nurllst_">
+
+@nurllst_
+
+</a>
+
+</p>
+
+<p>
+
+📧
+
+<a href="mailto:nurulstly@gmail.com">
+
+nurulstly@gmail.com
+
+</a>
+
+</p>
+
+<p>
+
+📍
+
+Rancaekek Kencana
+
+</p>
+
+<hr>
+
+<p>
+
+© 2026 Aurora Hijab
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
